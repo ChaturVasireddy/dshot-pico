@@ -30,7 +30,7 @@ target_link_libraries(your_project
 )
 ```
 ## Usage
-### 1.Create an object of type dshot_actuator.
+### 1.Create dshot_actuator object type:
 The pin member specifies the GPIO connected to the ESC signal input:
 ```c
 dshot_actuator example_motor = {
@@ -42,20 +42,19 @@ dshot_actuator example_motor = {
 ```c
 dshot_init(&example_motor);
 ```
-Note that `dshot_init` is blocking and takes about 7ms.
-### 3.Arm ESC
-To run the actuator, you first need to call the arming function:
+> Note that `dshot_init` is blocking and takes about 7ms.
+### 3.Arm ESC:
 ```c
 dshot_arm(&example_motor);
 ```
 ### 4. Send Throttle Commands
-After arming peridically call the throttle function: 
+After arming, peridically call the throttle function: 
 ```c
 dshot_throttle(&example_motor, throttle value);
 ```
-if you stop calling `dshot_throttle` for too long, you are required to arming sequence again. Im not really sure about the maximum time interval, but i believe 1ms is a good time period between each throttle function call. As for the minimum time interval, it can be lower than 1ms aswell and i observed that it works better when its above 200us (0.2ms).
+if you stop calling `dshot_throttle` for too long, you are required to arming sequence again. Im not really sure about the maximum time interval, but i believe 1ms is a good time period between each throttle function call. As for the minimum time interval, i observed that it works well when its above 200us (0.2ms).
 
-`dshot_throttle` is basically instantaneous since it just loads data into the PIO state machines after which it can run parllely with the main core.
+> `dshot_throttle` is basically instantaneous since it just loads data into the PIO state machines after which it can run parllely with the main core.
 
 ## Throttle Values
 For normal throttle operation, use values between 48 and 2047 where 48 is slow spin and 2047 is the max spin. 
@@ -67,4 +66,4 @@ Values between 0 47 since are reserved for speacial commands. For advanced useca
 ```c
 dshot_mode3d(&example_motor);
 ```
-This is basically is equivalent to calling `dshot_throttle` with the required special command. However i still made it into a function since its used commonly.
+> This is basically is equivalent to calling `dshot_throttle` with the required special command. However i still made it into a function since its used commonly.
