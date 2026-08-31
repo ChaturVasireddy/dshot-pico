@@ -1,8 +1,4 @@
-#include "pico/stdlib.h"
-#include "hardware/pio.h"
-
-#include "dshot.pio.h"
-#include <stdint.h>
+#include "dshot.h"
 typedef struct {
     PIO pio;
     uint sm;
