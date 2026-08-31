@@ -1,4 +1,4 @@
-# dshot-pio
+# dshot-pico
 A DShot (Digital Shot) library for the Raspberry Pi Pico using PIO (Programmable I/O).
 
 Currently, the library supports DShot300. Support for additional DShot protocols may be added in the future.
