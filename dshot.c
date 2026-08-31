@@ -21,7 +21,7 @@ void mode3d(const dshot_actuator *actuator) {
     }
 }
 
-void thrust(const dshot_actuator *actuator, uint16_t throttle) {
+void throttle(const dshot_actuator *actuator, uint16_t throttle) {
         throttle &= 0x7FF;
         uint16_t packet = (throttle << 1) | 0;
         uint16_t crc = (packet ^ (packet >> 4) ^ (packet >> 8)) & 0x0F;         //calulating 4bit CRC
@@ -35,5 +35,5 @@ void thrust(const dshot_actuator *actuator, uint16_t throttle) {
 //     };
 //     dshot_init(&T1);
 //     dshot_arm(&T1);
-//     thrust(&T1, 1000);
+//     throttle(&T1, 1000);
 // }

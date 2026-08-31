@@ -14,4 +14,4 @@ typedef struct {
 void dshot_init(dshot_actuator *actuator);
 void dshot_arm(const dshot_actuator *actuator);
 void mode3d(const dshot_actuator *actuator);
-void thrust(const dshot_actuator *actuator, uint16_t throttle);
+void throttle(const dshot_actuator *actuator, uint16_t throttle);
