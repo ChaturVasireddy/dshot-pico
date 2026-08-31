@@ -1,11 +1,5 @@
 #include "dshot.h"
 #include "dshot.pio.h"
-typedef struct {
-    PIO pio;
-    uint sm;
-    uint offset;
-    uint pin;
-} dshot_actuator;
 
 void dshot_init(dshot_actuator *actuator) {
         bool success = pio_claim_free_sm_and_add_program_for_gpio_range(&dshot_program, &actuator->pio, &actuator->sm, &actuator->offset, actuator->pin, 1, true);
