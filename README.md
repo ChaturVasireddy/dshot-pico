@@ -67,3 +67,7 @@ Values between 0 47 since are reserved for speacial commands. For advanced useca
 dshot_mode3d(&example_motor);
 ```
 > This is basically is equivalent to calling `dshot_throttle` with the required special command. However i still made it into a function since its used commonly.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
