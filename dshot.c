@@ -10,7 +10,7 @@ typedef struct {
     uint pin;
 } dshot_actuator;
 
-void dshot_init(const dshot_actuator *actuator) {
+void dshot_init(dshot_actuator *actuator) {
         bool success = pio_claim_free_sm_and_add_program_for_gpio_range(&dshot_program, &actuator->pio, &actuator->sm, &actuator->offset, actuator->pin, 1, true);
         hard_assert(success);
         dshot_program_init(actuator->pio, actuator->sm, actuator->offset, actuator->pin);
