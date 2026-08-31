@@ -1,4 +1,5 @@
 #include "dshot.h"
+#include "dshot.pio.h"
 typedef struct {
     PIO pio;
     uint sm;
@@ -34,11 +35,11 @@ void thrust(const dshot_actuator *actuator, uint16_t throttle) {
         pio_sm_put_blocking(actuator->pio, actuator->sm, (uint32_t)escframe << 16);
 }
 
-int main (){
-    dshot_actuator T1 = {
-        .pin = 2
-    };
-    dshot_init(&T1);
-    dshot_arm(&T1);
-    thrust(&T1, 1000);
-}
+// int main (){
+//     dshot_actuator T1 = {
+//         .pin = 2
+//     };
+//     dshot_init(&T1);
+//     dshot_arm(&T1);
+//     thrust(&T1, 1000);
+// }
